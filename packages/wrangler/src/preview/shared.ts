@@ -242,7 +242,10 @@ export function extractConfigBindings(config: Config): EnvBindings {
 	}
 
 	for (const pipeline of previews?.pipelines ?? []) {
-		env[pipeline.binding] = { type: "pipelines", pipeline: pipeline.pipeline };
+		env[pipeline.binding] = {
+			type: "pipelines",
+			pipeline: pipeline.stream || pipeline.pipeline,
+		};
 	}
 
 	for (const secret of previews?.secrets_store_secrets ?? []) {

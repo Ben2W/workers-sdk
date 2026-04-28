@@ -637,10 +637,10 @@ export function printBindings(
 
 	if (pipelines.length > 0) {
 		output.push(
-			...pipelines.map(({ binding, pipeline, remote }) => ({
+			...pipelines.map(({ binding, stream, pipeline, remote }) => ({
 				name: binding,
 				type: getBindingTypeFriendlyName("pipeline"),
-				value: pipeline,
+				value: stream || pipeline,
 				mode: getMode({
 					isSimulatedLocally: context.remoteBindingsDisabled || !remote,
 				}),

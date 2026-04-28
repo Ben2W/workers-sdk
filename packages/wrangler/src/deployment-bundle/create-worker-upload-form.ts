@@ -481,11 +481,11 @@ export function createWorkerUploadForm(
 		});
 	});
 
-	pipelines.forEach(({ binding, pipeline }) => {
+	pipelines.forEach(({ binding, stream, pipeline }) => {
 		metadataBindings.push({
 			name: binding,
 			type: "pipelines",
-			pipeline: pipeline,
+			stream: stream || pipeline,
 		});
 	});
 
