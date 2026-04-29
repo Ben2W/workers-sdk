@@ -1,5 +1,35 @@
 # wrangler
 
+## 4.87.0
+
+### Minor Changes
+
+- [#13726](https://github.com/cloudflare/workers-sdk/pull/13726) [`b5ac54b`](https://github.com/cloudflare/workers-sdk/commit/b5ac54baa4a6e40b7352f7d3ed0d3531a37a5e8f) Thanks [@penalosa](https://github.com/penalosa)! - Hard fail on Node.js < 22
+
+  Wrangler no longer supports Node.js 20.x, as it reached end-of-life on 2026-04-30. The minimum supported Node.js version is now 22.0.0. See https://github.com/nodejs/release?tab=readme-ov-file#end-of-life-releases.
+
+### Patch Changes
+
+- [#13732](https://github.com/cloudflare/workers-sdk/pull/13732) [`22e1a61`](https://github.com/cloudflare/workers-sdk/commit/22e1a6176da1ff0e91e3d27b41c3770b323b56a7) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update dependencies of "miniflare", "wrangler"
+
+  The following dependency versions have been updated:
+
+  | Dependency | From         | To           |
+  | ---------- | ------------ | ------------ |
+  | workerd    | 1.20260426.1 | 1.20260429.1 |
+
+- [#13711](https://github.com/cloudflare/workers-sdk/pull/13711) [`1c4d850`](https://github.com/cloudflare/workers-sdk/commit/1c4d850b22f03d087112b61e1f6969e81398cd6e) Thanks [@dario-piotrowicz](https://github.com/dario-piotrowicz)! - fix: skip auto-config and OpenNext delegation when `--config` is explicitly provided
+
+  When `--config` is passed to `wrangler deploy`, the user is explicitly targeting a specific Worker configuration. Previously, wrangler would ignore `--config` and delegate to `opennextjs-cloudflare deploy` if it detected an OpenNext project in the working directory, silently deploying the wrong Worker. Now, both auto-config detection and OpenNext delegation are skipped when `--config` is provided, matching the existing behavior for `--script` and `--assets`.
+
+- [#13735](https://github.com/cloudflare/workers-sdk/pull/13735) [`6d28037`](https://github.com/cloudflare/workers-sdk/commit/6d28037f6face1ee1d025d57e0d0b2f175ae2eb3) Thanks [@edmundhung](https://github.com/edmundhung)! - Improve `config-schema.json` hover text in more editors
+
+  Wrangler now emits `markdownDescription` in `config-schema.json` alongside the existing `description` field. Editors that support rich JSON Schema hovers can use that markdown directly instead of rendering escaped links and formatting.
+
+- Updated dependencies [[`22e1a61`](https://github.com/cloudflare/workers-sdk/commit/22e1a6176da1ff0e91e3d27b41c3770b323b56a7), [`b5ac54b`](https://github.com/cloudflare/workers-sdk/commit/b5ac54baa4a6e40b7352f7d3ed0d3531a37a5e8f), [`e1eff94`](https://github.com/cloudflare/workers-sdk/commit/e1eff943ec4c073c3d1ba2c1910806d68f98e5a3), [`0bf64a7`](https://github.com/cloudflare/workers-sdk/commit/0bf64a79678fb08158e341ed1e0cc21341a770a7), [`b04eedf`](https://github.com/cloudflare/workers-sdk/commit/b04eedfcdc713d04cbb4f1722ebe056c9dc4cb6e), [`6457fb3`](https://github.com/cloudflare/workers-sdk/commit/6457fb38c7fbce39c396562bc3324b945114c672), [`c07d0cb`](https://github.com/cloudflare/workers-sdk/commit/c07d0cb4fafbcf3a60c46e1aa6a48ed63de598da)]:
+  - miniflare@4.20260429.0
+  - @cloudflare/kv-asset-handler@0.5.0
+
 ## 4.86.0
 
 ### Minor Changes
